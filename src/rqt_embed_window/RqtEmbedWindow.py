@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
+
 import os
-import rospy
+import rclpy
+from rclpy.logging import get_logger
 import time
 
 from qt_gui.plugin import Plugin
@@ -8,7 +11,7 @@ from python_qt_binding.QtWidgets import QWidget, QInputDialog
 from python_qt_binding.QtGui import QWindow
 from python_qt_binding.QtCore import Qt
 from qt_gui.settings import Settings
-from shell_cmd import ShellCmd
+from rqt_embed_window.shell_cmd import ShellCmd
 
 
 def get_window_id_by_window_name(window_name):
@@ -118,8 +121,9 @@ class RqtEmbedWindow(Plugin):
             window_id = wait_for_window_id(pid=self._process.get_pid(),
                                            timeout=self._timeout_to_window_discovery)
         if window_id is None:
-            rospy.logerr("Could not find window id...")
-            rospy.logerr("Command was: {} \nWindow name was: '{}'\nStdOut was: {}\nStdErr was: {}".format(self._command,
+            logger = get_logger('rqt_embed_window')
+            logger.error("Could not find window id...")
+            logger.error("Command was: {} \nWindow name was: '{}'\nStdOut was: {}\nStdErr was: {}".format(self._command,
                                                                                                           self._window_name,
                                                                                                           self._process.get_stdout(),
                                                                                                           self._process.get_stderr()))

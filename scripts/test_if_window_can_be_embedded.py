@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 def get_window_id_by_pid(pid):
     """
@@ -11,7 +11,7 @@ def get_window_id_by_pid(pid):
     # WindowID    ? PID       USER   Window Name
     # Needs sudo apt-get install wmctrl -lp
 
-    output = check_output('wmctrl -lp', shell=True)
+    output = check_output('wmctrl -lp', shell=True).decode('utf-8')
     # Find the line with the PID we are looking for
     for line in output.splitlines():
         fields = line.split()

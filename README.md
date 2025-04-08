@@ -29,6 +29,20 @@ Other maybe useful or fun ones:
 
 ![Example usage in rqt_gui](usage.gif)
 
+## ROS 2
+Open a terminal and run:
+```bash
+ros2 run rqt_gui rqt_gui
+```
+
+Then go to `Plugins` > `Miscellaneous Tools` > `Embed a graphical program window into RQT`.
+
+You can also launch it directly with:
+```bash
+ros2 launch rqt_embed_window rqt_embed_window.launch.py
+```
+
+## ROS 1 (Legacy)
 Open `rosrun rqt_gui rqt_gui`, go to `Plugins` > `Miscellaneous Tools` > `Embed a graphical program window into RQT`.
 
 You'll be prompted for the commandline for the program (which will be executed in the plugin), for example `rviz -s None`.
@@ -72,6 +86,12 @@ Workaround needed to drag data sources from the left panel, drag-and-drop doesn'
 create the layout (with the `Save data sources` option enabled) for the embedded plotjuggler before hand in a non-embedded plotjuggler.
 
 ### Run rosbag_editor
+For ROS2:
+```bash
+ros2 run rosbag_editor rosbag_editor
+```
+
+For ROS1 (legacy):
 ```bash
 rosrun rosbag_editor rosbag_editor
 ```
@@ -79,4 +99,8 @@ rosrun rosbag_editor rosbag_editor
 # Thanks
 
 Thanks to [@leggedrobotics](https://github.com/leggedrobotics), specially [@samuelba](https://github.com/samuelba), for the [catkin_create_rqt](https://github.com/leggedrobotics/catkin_create_rqt) package which made cooking the first version of this package quick and painless.
+
+# ROS2 Migration
+
+This package has been migrated to ROS2 Humble. See the [MIGRATION.md](MIGRATION.md) file for details on the changes made.
 
