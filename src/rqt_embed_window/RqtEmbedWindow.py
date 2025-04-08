@@ -192,3 +192,13 @@ class RqtEmbedWindow(Plugin):
                 self._process.kill()
 
             self.add_external_window_widget()
+
+
+def main():
+    import sys
+    from rqt_gui.main import Main
+    main = Main(filename='rqt_embed_window')
+    sys.exit(main.main(standalone='rqt_embed_window'))
+
+if __name__ == '__main__':
+    main()

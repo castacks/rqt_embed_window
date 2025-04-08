@@ -6,14 +6,15 @@ This document outlines the changes made to migrate the `rqt_embed_window` packag
 
 ### Package Configuration
 - Updated `package.xml` from format 2 to format 3
-- Changed build tool dependencies from `catkin` to `ament_cmake` and `ament_cmake_python`
+- Changed build tool dependencies from `catkin` to `ament_python`
 - Updated dependencies from `rospy` to `rclpy`
 - Added explicit dependency on `python3-qt5`
 - Fixed package name tag (was `<n>` instead of `<name>`)
 
 ### Build System
-- Updated `CMakeLists.txt` to use ROS2 conventions
-- Changed from `catkin_python_setup()` to `ament_python_install_package()`
+- Removed `CMakeLists.txt` in favor of a pure Python package structure
+- Updated `setup.py` to use setuptools and ROS2 conventions
+- Added entry points for console scripts
 - Updated installation paths to follow ROS2 conventions
 - Added testing support
 
