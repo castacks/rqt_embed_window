@@ -1,4 +1,4 @@
-<library path="src">
+<library path="src/rqt_embed_window">
   <class name="RqtEmbedWindow" type="rqt_embed_window.RqtEmbedWindow.RqtEmbedWindow"
          base_class_type="rqt_gui_py::Plugin">
     <description>
